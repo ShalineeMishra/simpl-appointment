@@ -575,9 +575,9 @@ export class AppointmentComponent implements OnInit {
 
   GetValueFromDayTimeComp(event: any) {
     if (event) {
-      // this._AvailDayPageLoad = false;
-      // this._AvailTimePageLoad = false;
-      // this._selectedStaff = 0;
+      this._AvailDayPageLoad = false;
+      this._AvailTimePageLoad = false;
+      this._selectedStaff = 0;
     }
     //this.ngOnInit();
   }
