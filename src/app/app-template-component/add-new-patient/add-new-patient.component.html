@@ -1,0 +1,73 @@
+<ion-content>
+  <div class="grey-bx">
+      <ion-row>
+          <div class="box-title">
+              <ion-col size="7" class="ion-no-padding">
+                  <div class="title-overview">
+                      <div class="big-link" style="cursor: pointer;" [routerLink]="['/appointments/select-patient']">
+                          <i class="fa fa-chevron-left" aria-hidden="true"></i>                      
+                          <span>Add New Patient</span>
+                      </div>
+                      <p *ngIf="!segmentDisabledDesc">Add any Notes or Description for the Appointment</p>
+
+                  </div>
+              </ion-col>
+              <ion-col size="3" style="text-align: center;justify-content:flex-end;display: flex;">
+                  <div (click)="redirectOnNextButton()">
+                      <a class="add-button">{{ buttonText }}</a>
+                  </div>
+              </ion-col>
+          </div>
+      </ion-row>
+
+      <ion-row>
+          <ion-col size="3">
+              <ion-segment (ionChange)="segmentChanged($event.detail.value)" value="patient information" class="custom-location-tab">
+
+                  <ion-segment-button value="patient information" layout="icon-start" [disabled]="currentDiv === 'insurance information' || !segmentDisabledDesc">
+                      <ion-label>
+                          <span class="location-tab-cricle"></span>Patient Information
+                      </ion-label>
+                  </ion-segment-button>
+
+                  <ion-segment-button value="description" [disabled]="segmentDisabledDesc">
+                      <ion-label>
+                          <span class="location-tab-cricle"></span> Description
+                      </ion-label>
+                  </ion-segment-button>
+              </ion-segment>
+          </ion-col>
+          <ion-col size="9">
+
+              <ion-list class="location-tab-content" *ngIf="currentDiv === 'patient information'">
+                  <div class="location-tab-box data-box">
+                      <addpatient-component [type] ="'appointment'"[events]="eventsSubject.asObservable()" (requestBodyForAddPatient)="callPatientAddMethod($event)"> </addpatient-component>
+                  </div>
+              </ion-list>
+            
+              <div class="location-tab-content" *ngIf="currentDiv === 'description'">
+                <ion-list class="location-tab-content mt-3">
+                  <div class="location-tab-box data-box">
+                    <div class="title-border t-header">
+                      <h3>Description</h3>
+                    </div>
+                    <div>  
+                      <form [formGroup]="DescriptionForm">
+                        <ion-row>
+                              <ion-label class="custom-label">Notes/Description
+                              </ion-label>
+                                <ion-textarea class="location-textarea mt-2"
+                                  [class.invalid-in]="!DescriptionForm.get('notes')?.valid && DescriptionForm.get('notes')?.touched"
+                                  placeholder="Enter Description Here" formControlName="notes">
+                                </ion-textarea>
+                      </ion-row>
+                      </form>  
+                        
+                    </div>
+                </div>
+                </ion-list>
+              </div>
+          </ion-col>
+      </ion-row>
+  </div>
+</ion-content>

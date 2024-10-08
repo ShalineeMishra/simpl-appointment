@@ -1,0 +1,71 @@
+<ion-content>
+  <ion-row>
+      <ion-col size="2" class="d-flex align-items-center">
+          <div class="site-logo">
+              <img [src]="themeService.currentTheme?.logoUrl" *ngIf="themeService.currentTheme?.logoUrl && themeService.currentTheme?.logoUrl !== null" />
+          </div>
+      </ion-col>
+
+      <ion-col size="10"></ion-col>
+
+      <!-- <ion-col size="5.5" class="d-flex justify-content-center align-items-center">
+          <div class="header-provider-name">
+              <h5>{{userCredentialsService.loggedInUserDetails?.provider?.name}}</h5>
+          </div>
+      </ion-col> -->
+
+
+       <!-- normal-dropdown -->
+      <!-- <ion-col size="2.5" class="d-flex justify-content-end align-items-center">
+          <div *ngIf="providerLocation; else elseBlock" class="location-bx">
+              <span><img src="assets/icon/location.svg"></span>
+              <select class="form-select custom-select custom-dropdown" [(ngModel)]="selectedProviderLocation">
+                  <option disabled class="custom-dropdown-option" style="background-color: transparent;"  value=""> Select Location </option>
+                  <option class="custom-dropdown-option" style="background-color: transparent;" id="location_provider" *ngFor="let item of providerLocation"
+                      value="{{item?.id}}">{{item?.name}} </option>
+              </select>
+          </div>
+          <ng-template #elseBlock>
+              <p class="location-provider mb-0 text-end" *ngIf="providerLocation?.length"> {{providerLocation[0]?.name}}</p>
+          </ng-template>
+      </ion-col> -->
+      <!-- normal-dropdown end -->
+
+      <!-- <ion-col size="2" class="d-flex justify-content-end align-items-center">
+          <div class="header-provider-name" *ngIf="userCredentialsService.loggedInUserDetails?.first_name || userCredentialsService.loggedInUserDetails?.last_name">
+              <p>Welcome, 
+                {{userCredentialsService.loggedInUserDetails?.first_name}}
+                {{userCredentialsService.loggedInUserDetails?.middle_name}}
+                {{userCredentialsService.loggedInUserDetails?.last_name}}
+              </p>
+          </div>
+      </ion-col> -->
+
+  </ion-row>
+
+  <div class="ion-page" id="main-content">
+    <ng-container class="ion-padding" style="margin-top: 10%">
+      <div *ngFor="let menu of menuItems; let first = first">
+        <div style="margin-bottom: 10px"></div>
+        <ion-item
+          *ngFor="let subMenu of menu?.subMenuItems"
+          [class]="!subMenu?.visible ? 'hidden' : 'menu-item'"
+          routerLinkActive="active"
+          style="cursor: pointer"
+          lines="none">
+          <img
+            [src]="'assets/menu-icons/' + subMenu?.icon"
+            style="width: 24px"
+          />&nbsp;&nbsp;{{ subMenu?.label }}
+        </ion-item>
+      </div>
+    </ng-container>
+  </div>
+
+  <div class="main">
+    <router-outlet></router-outlet>
+  </div>
+  
+</ion-content>
+
+

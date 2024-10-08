@@ -1,0 +1,35 @@
+<div class="search-dropdown" [ngClass]="{'open':shown && list !== undefined,'small':size=='small'}">
+    <div class="search-dropdown__btn" (click)="show()">
+        <span><img src="/assets/img/user.png" class="aco-img"> {{value}}</span>
+    </div>
+    <div class="search-dropdown__dropdown">
+        <div class="search-icon">
+            <i class="fa fa-search"></i>
+        </div>
+        <input class="search-dropdown__dropdown__search" type="text" placeholder="Search here" [(ngModel)]="keyword"
+            (keyup)="search(keyword)" #input />
+        <div class="search-dropdown__dropdown__scroller" *ngIf="list?.length !== 0 && apiResponseReceived">
+            <div class="search-dropdown__dropdown__item" *ngFor="let item of list" (click)="select(item)">
+                <div class="search-dropdown__dropdown__item__img">
+                    <img class="patient-pic image-pic" *ngIf="item['profileImage']" [src]="[item['profileImage'] ? item['profileImage'] : img]"
+                        alt="Img">
+                    <div class="patient-pic profileImage" *ngIf="item['initialImage']">{{item['initialImage']}}</div>
+                </div>
+                <div class="search-dropdown__dropdown__item__content">
+                    <p>{{item[_label]}}</p>
+                    <div class="search-dropdown__dropdown__item__avl">
+                        {{avl}}
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="search-dropdown__dropdown__msg" *ngIf="list?.length == 0 && apiResponseReceived">
+            <div class="ion-text-center">
+                <img class="no-data" src="assets/img/no_result_found.svg">
+                <br>
+                <ion-text>No result found</ion-text>
+            </div>
+        </div>
+    </div>
+</div>

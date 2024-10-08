@@ -1,0 +1,573 @@
+<ion-menu class="CustomMenu box-bg" side="end" menuId="uploadInsuraceMenuId" contentId="main-content">
+    <ion-content class="ion-padding">
+        <ion-row>
+            <ion-col size="11" class="border-btm mb20">
+                <ion-label class="side-lable">Upload Images</ion-label>
+                
+            </ion-col>
+            <ion-col size="1">
+                <a (click)="closeEndMenu()">
+                    <i class="fa fa-times close-icon" aria-hidden="true"></i>
+                    </a>
+            </ion-col>
+            
+        </ion-row>
+        <ion-row>
+            <ion-col size="12">
+                <div class="insurancecard-bx">
+                    <h2>Please upload images of your insurance card</h2>
+                    <p>Side 1</p>
+                    <ul>
+                        <li>
+                            <div class="uploadbx">
+                                <div class="upload-btn-wrapper">
+                                    <!-- <button>
+                                        <img src="../assets/img/upload-green-lg.svg" >
+                                    </button> -->
+                                    <img src="../assets/img/upload-green-lg.svg" >
+                                    <!-- <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none"
+                                    [attr.fill]="userService.getBranding('tabColor')">
+                                        <path opacity="0.4" d="M11.6667 15L28.3333 15C32.0152 15 35 17.9848 35 21.6667V28.3333C35 32.0152 32.0152 35 28.3333 35H11.6667C7.98477 35 5 32.0152 5 28.3333L5 21.6667C5 17.9848 7.98477 15 11.6667 15Z"
+                                        fill="" class="icon-eye"/>
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M14.1161 10.8839C13.628 10.3957 13.628 9.60427 14.1161 9.11612L19.1161 4.11612C19.6043 3.62796 20.3957 3.62796 20.8839 4.11612L25.8839 9.11612C26.372 9.60427 26.372 10.3957 25.8839 10.8839C25.3957 11.372 24.6043 11.372 24.1161 10.8839L21.25 8.01777L21.25 25C21.25 25.6904 20.6904 26.25 20 26.25C19.3096 26.25 18.75 25.6904 18.75 25L18.75 8.01777L15.8839 10.8839C15.3957 11.372 14.6043 11.372 14.1161 10.8839Z" 
+                                        fill="" class="icon-eye"/>
+                                    </svg> -->
+
+                                    <input type="file" name="insuranceFront" accept=".jpg, .jpeg, .png"
+                                        (change)="onFileSelected($event, 'insuranceFront', currentIndex)" />
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <ion-input [(ngModel)]="fileNames['insuranceFront']"
+                                placeholder="Insurance front side image" class="custom" readonly></ion-input>
+                        </li>
+                        <li>
+                            <a *ngIf="insuranceFiles[currentIndex]?.['insuranceFront']">
+                                <!-- <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26" fill="none" 
+                                [attr.fill]="userService.getBranding('tabColor')">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M5.41797 14.083L9.23826 17.1392C10.1345 17.8562 11.4344 17.7499 12.2022 16.8968L20.5846 7.58301"
+                                    fill="" class="icon-eye"/>
+                                </svg> -->
+                                <img src="../../assets/img/tick-green.svg">
+                            </a>
+                        </li>
+                    </ul>
+                    <p>Side 2</p>
+                    <ul>
+                        <li>
+                            <div class="uploadbx">
+                                <div class="upload-btn-wrapper">
+                                    <img src="../assets/img/upload-green-lg.svg">
+                                    <!-- <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none"
+                                    [attr.fill]="userService.getBranding('tabColor')">
+                                        <path opacity="0.4" d="M11.6667 15L28.3333 15C32.0152 15 35 17.9848 35 21.6667V28.3333C35 32.0152 32.0152 35 28.3333 35H11.6667C7.98477 35 5 32.0152 5 28.3333L5 21.6667C5 17.9848 7.98477 15 11.6667 15Z"
+                                        fill="" class="icon-eye"/>
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M14.1161 10.8839C13.628 10.3957 13.628 9.60427 14.1161 9.11612L19.1161 4.11612C19.6043 3.62796 20.3957 3.62796 20.8839 4.11612L25.8839 9.11612C26.372 9.60427 26.372 10.3957 25.8839 10.8839C25.3957 11.372 24.6043 11.372 24.1161 10.8839L21.25 8.01777L21.25 25C21.25 25.6904 20.6904 26.25 20 26.25C19.3096 26.25 18.75 25.6904 18.75 25L18.75 8.01777L15.8839 10.8839C15.3957 11.372 14.6043 11.372 14.1161 10.8839Z" 
+                                        fill="" class="icon-eye"/>
+                                    </svg> -->
+
+                                    <input type="file" name="insuranceBack" accept=".jpg, .jpeg, .png"
+                                        (change)="onFileSelected($event, 'insuranceBack', currentIndex)" />
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <ion-input [(ngModel)]="fileNames['insuranceBack']" placeholder="Insurance back side image"
+                                class="custom" readonly></ion-input>
+                        </li>
+                        <li>
+                            <a *ngIf="insuranceFiles[currentIndex]?.['insuranceBack']">
+                                <!-- <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26" fill="none" 
+                                [attr.fill]="userService.getBranding('tabColor')">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M5.41797 14.083L9.23826 17.1392C10.1345 17.8562 11.4344 17.7499 12.2022 16.8968L20.5846 7.58301"
+                                    fill="" class="icon-eye"/>
+                                </svg> -->
+                                <!-- <img src="../../assets/img/tick-green.svg"> -->
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </ion-col>
+        </ion-row>
+
+        <!-- Member ID Uploads -->
+        <ion-row>
+            <ion-col size="12">
+                <div class="insurancecard-bx">
+                    <h2>Please upload images of your ID card</h2>
+                    <p>Side 1</p>
+                    <ul>
+                        <li>
+                            <div class="uploadbx">
+                                <div class="upload-btn-wrapper">                                    
+                                    <img src="../assets/img/upload-green-lg.svg">
+                                    <!-- <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none"
+                                    [attr.fill]="userService.getBranding('tabColor')">
+                                        <path opacity="0.4" d="M11.6667 15L28.3333 15C32.0152 15 35 17.9848 35 21.6667V28.3333C35 32.0152 32.0152 35 28.3333 35H11.6667C7.98477 35 5 32.0152 5 28.3333L5 21.6667C5 17.9848 7.98477 15 11.6667 15Z"
+                                        fill="" class="icon-eye"/>
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M14.1161 10.8839C13.628 10.3957 13.628 9.60427 14.1161 9.11612L19.1161 4.11612C19.6043 3.62796 20.3957 3.62796 20.8839 4.11612L25.8839 9.11612C26.372 9.60427 26.372 10.3957 25.8839 10.8839C25.3957 11.372 24.6043 11.372 24.1161 10.8839L21.25 8.01777L21.25 25C21.25 25.6904 20.6904 26.25 20 26.25C19.3096 26.25 18.75 25.6904 18.75 25L18.75 8.01777L15.8839 10.8839C15.3957 11.372 14.6043 11.372 14.1161 10.8839Z" 
+                                        fill="" class="icon-eye"/>
+                                    </svg> -->
+
+                                    <input type="file" name="idFront" accept=".jpg, .jpeg, .png"
+                                        (change)="onFileSelected($event, 'idFront', currentIndex)" />
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <ion-input [(ngModel)]="fileNames['idFront']" placeholder="ID front side image"
+                                class="custom" readonly></ion-input>
+                        </li>
+                        <li>
+                            <a *ngIf="insuranceFiles[currentIndex]?.['idFront']">
+                                <!-- <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26" fill="none" 
+                                [attr.fill]="userService.getBranding('tabColor')">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M5.41797 14.083L9.23826 17.1392C10.1345 17.8562 11.4344 17.7499 12.2022 16.8968L20.5846 7.58301"
+                                    fill="" class="icon-eye"/>
+                                </svg> -->
+                                <img src="/assets/img/tick-green.svg">
+                            </a>
+                        </li>
+                    </ul>
+                    <p>Side 2</p>
+                    <ul>
+                        <li>
+                            <div class="uploadbx">
+                                <div class="upload-btn-wrapper">
+                                    <img src="../assets/img/upload-green-lg.svg">
+                                    <!-- <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none"
+                                    [attr.fill]="userService.getBranding('tabColor')">
+                                        <path opacity="0.4" d="M11.6667 15L28.3333 15C32.0152 15 35 17.9848 35 21.6667V28.3333C35 32.0152 32.0152 35 28.3333 35H11.6667C7.98477 35 5 32.0152 5 28.3333L5 21.6667C5 17.9848 7.98477 15 11.6667 15Z"
+                                        fill="" class="icon-eye"/>
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M14.1161 10.8839C13.628 10.3957 13.628 9.60427 14.1161 9.11612L19.1161 4.11612C19.6043 3.62796 20.3957 3.62796 20.8839 4.11612L25.8839 9.11612C26.372 9.60427 26.372 10.3957 25.8839 10.8839C25.3957 11.372 24.6043 11.372 24.1161 10.8839L21.25 8.01777L21.25 25C21.25 25.6904 20.6904 26.25 20 26.25C19.3096 26.25 18.75 25.6904 18.75 25L18.75 8.01777L15.8839 10.8839C15.3957 11.372 14.6043 11.372 14.1161 10.8839Z" 
+                                        fill="" class="icon-eye"/>
+                                    </svg> -->
+
+                                    <input type="file" name="idBack" accept=".jpg, .jpeg, .png"
+                                        (change)="onFileSelected($event, 'idBack', currentIndex)" />
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <ion-input [(ngModel)]="fileNames['idBack']" placeholder="ID back side image" class="custom"
+                                readonly></ion-input>
+                        </li>
+                        <li>
+                            <a *ngIf="insuranceFiles[currentIndex]?.['idBack']">
+                                <!-- <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26" fill="none" 
+                                [attr.fill]="userService.getBranding('tabColor')">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M5.41797 14.083L9.23826 17.1392C10.1345 17.8562 11.4344 17.7499 12.2022 16.8968L20.5846 7.58301"
+                                    fill="" class="icon-eye"/>
+                                </svg> -->
+                                <img src="assets/img/tick-green.svg">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col size="12">
+                <div class="upload-img-list">
+                    <ul>
+                        <li *ngFor="let fileName of selectedFileNames">
+                            <p>{{ fileName }}</p>
+                            <a (click)="removeFile(fileName)">
+                                <img src="../../assets/img/cross-sm-ico.svg" alt="Remove">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col size="12">
+                <div class="upload-file-size">
+                    <ul>
+                        <li>
+                            <p>Accepted File:</p>
+                            <span>jpg, jpeg and png only</span>
+                        </li>
+                        <li>
+                            <p>File Size:</p>
+                            <span>1MB max</span>
+                        </li>
+                    </ul>
+                </div>
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col size="12">
+                <div class="text-center mt-3">
+                    <a class="add-button" (click)="closeEndMenu()">Upload</a>
+                </div>
+            </ion-col>
+        </ion-row>
+    </ion-content>
+</ion-menu>
+<div class="box-title addp-height custom-scroll">
+    <ion-row>
+        <div class="add-box-title">
+            <ion-col size="6">
+                <div class="title-overview">
+                    <div style="cursor: pointer;" *ngIf="type !== 'appointment'" (click)="openModal()">
+                        <!-- <div style="cursor: pointer;" [routerLink]="['/patient']"> -->
+                        <i *ngIf="type !== 'appointment'" name="close" class="fa fa-close" aria-hidden="true"></i><span>
+                            Cancel</span>
+                    </div>
+                    <h2>Add New Patient</h2>
+                </div>
+            </ion-col>
+            <ion-col size="6" style="text-align: center;justify-content:flex-end;display: flex;">
+                <a class="add-button" *ngIf="type !== 'appointment'"
+                    (click)="hasInsuranceValue() ? sendData() : addpatient()" [class.disabled]="disableButton"
+                    [attr.disabled]="disableButton ? true : null"> Save Changes</a>
+            </ion-col>
+        </div>
+    </ion-row>
+
+    <ion-row>
+        <ion-col size="12">
+            <div class="white-bg">
+                <form [formGroup]="regForm1">
+                    <div class="title-overview">
+                        <h4>Patient Information</h4>
+                    </div>
+                    <ion-row>
+                        <ion-col size="4">
+                            <ion-label class="field-label">First Name<span class="red-color">*</span></ion-label>
+                            <ion-input class="custom mt-2 box"
+                                [class.invalid-in]="!regForm1.get('firstname')?.valid && regForm1.get('firstname')?.touched"
+                                formControlName="firstname" placeholder="Enter First Name"></ion-input>
+                        </ion-col>
+
+                        <ion-col size="4">
+                            <ion-label class="field-label">Middle Name<span class="optional-css">
+                                    (Optional)</span></ion-label>
+                            <ion-input
+                                [class.invalid-in]="!regForm1.get('middlename')?.valid && regForm1.get('middlename')?.touched"
+                                formControlName="middlename" placeholder="Enter Middle Name"
+                                class="custom mt-2"></ion-input>
+                        </ion-col>
+                        <ion-col size="4">
+                            <ion-label class="field-label">Last Name<span class="red-color">*</span></ion-label>
+                            <ion-input
+                                [class.invalid-in]="!regForm1.get('lastname')?.valid && regForm1.get('lastname')?.touched"
+                                class="custom mt-2" aria-label="Success input" color="success"
+                                formControlName="lastname" placeholder="Enter Last Name"></ion-input>
+                        </ion-col>
+                        <ion-col size="4">
+                            <ion-label class="field-label">Email <span class="optional-css">
+                                    (Optional)</span></ion-label>
+                            <ion-input
+                                [class.invalid-in]="!regForm1.get('email')?.valid && regForm1.get('email')?.touched"
+                                aria-label="email" class="custom mt-2" formControlName="email"
+                                placeholder="Enter Email Address" maxLength="50"></ion-input>
+                        </ion-col>
+                        <ion-col size="4">
+                            <ion-label class="field-label">Phone Number <span class="optional-css">
+                                    (Optional)</span></ion-label>
+                            <!-- <ion-input
+                                [class.invalid-in]="!regForm1.get('phone')?.valid && regForm1.get('phone')?.touched"
+                                inputmode="numeric" (keypress)="numericOnly($event)" class="custom mt-2"
+                                formControlName="phone" id="phoneInput" placeholder="(XXX) XXX-XXXX"
+                                [maskito]="phoneMask" [maskitoElement]="maskPredicate"></ion-input> -->
+                        </ion-col>
+                        <ion-col size="4">
+                            <ion-label class="field-label">Date of Birth<span class="red-color">*</span></ion-label>
+                            <ion-input class="custom mt-2" (ionInput)="onDobInput()"
+                                [class.invalid-in]="isInvalidInput || (!regForm1.get('dob')?.valid && regForm1.get('dob')?.touched)"
+                                formControlName="dob" placeholder="MM-DD-YYYY" maxLength="10" onPaste="return false"
+                                onCopy="return false" onCut="return false" onDrag="return false" onDrop="return false"
+                                [(ngModel)]="birthDate" (input)="validateDate()"></ion-input>
+                        </ion-col>
+                    </ion-row>
+
+                    <ion-row>
+                        <ion-col size="3">
+                            <ion-label class="field-label">Gender<span class="red-color">*</span></ion-label>
+                            <select class="form-select custom-select mt-2"
+                                [class.invalid-in]="!regForm1.get('gender')?.valid && regForm1.get('gender')?.touched"
+                                aria-label="Gender" formControlName="gender">
+                                <option selected disabled value="">Select Gender</option>
+                                <option value="MALE">MALE</option>
+                                <option value="FEMALE">FEMALE</option>
+                            </select>
+                        </ion-col>
+
+
+                        <ion-col size="5">
+                            <ion-row>
+                                <ion-label class="field-label">Social Security Number<span class="optional-css">
+                                        (Optional)</span></ion-label>
+                            </ion-row>
+                            <ion-row>
+                                <ion-col size="3.5">
+                                    <ion-input
+                                        [class.invalid-in]="regForm1.get('ssn1')?.invalid && regForm1.get('ssn1')?.touched"
+                                        (input)="onInput(input1, input2)" formControlName="ssn1"
+                                        [type]="showPassword ? 'text' : 'password'" #input1 inputmode="numeric"
+                                        (keypress)="numericOnly($event)" placeholder="###" class="custom so-sec"
+                                        maxlength="3"></ion-input>
+                                </ion-col>
+                                <ion-col size="3.5">
+                                    <ion-input
+                                        [class.invalid-in]="regForm1.get('ssn2')?.invalid && regForm1.get('ssn2')?.touched"
+                                        #input2 (input)="onInput(input2, input3)" formControlName="ssn2"
+                                        [type]="showPassword ? 'text' : 'password'" inputmode="numeric"
+                                        (keypress)="numericOnly($event)" placeholder="##" class="custom so-sec"
+                                        maxlength="2"></ion-input>
+                                </ion-col>
+                                <ion-col size="3.5">
+                                    <ion-input
+                                        [class.invalid-in]="regForm1.get('ssn3')?.invalid && regForm1.get('ssn3')?.touched"
+                                        #input3 (input)="onInput(input3, input4)" formControlName="ssn3"
+                                        [type]="showPassword ? 'text' : 'password'" inputmode="numeric"
+                                        (keypress)="numericOnly($event)" placeholder="####" class="custom so-sec"
+                                        maxlength="4"></ion-input>
+                                </ion-col>
+                                <ion-col size="1.5">
+                                    <button (click)="togglePasswordVisibility()" type="button" class="show-eye"
+                                        ion-button clear small item-end icon-only><img
+                                            [name]="showPassword ? 'eye-off' : 'eye'"
+                                            src="/assets/img/eye.svg" /></button>
+                                    <!-- <ion-icon name="eye" (click)="togglePasswordVisibility()"></ion-icon> -->
+                                </ion-col>
+
+                            </ion-row>
+                        </ion-col>
+                    </ion-row>
+                    <div class="title-overview">
+                        <h4 style="margin-top: 10px;">Primary Patient Address
+                            <span class="optional-css">(Required)</span>
+                            <a class="add-address" name="add-outline" title="Add" (click)="addAddress()"> <i class="fa fa-plus"
+                                    aria-hidden="true"></i> Add Address</a>
+                        </h4>
+                    </div>
+
+                    <ng-container formArrayName="addresses">
+                        <ng-container *ngFor="let addressForm of addresses?.controls; let i = index">
+
+                            <div class="title-overview">
+                                <h4 class="secnd-address-title">
+                                    <ng-container *ngIf="i==1">
+                                        Secondary Patient Address
+                                        <span class="optional-css">(Optional)</span>
+                                    </ng-container>
+                                    <a class="add-address" title="Remove" name="remove" (click)="removeAddress(i)"
+                                        *ngIf="i > 0">
+                                        <i class="fa fa-minus" aria-hidden="true"></i> Delete Address</a>
+                                </h4>
+                            </div>
+                            <ion-row [formGroupName]="i" class="address-border">
+                                <ion-col size="6">
+                                    <ion-label class="field-label">Address 1<span class="red-color">*</span></ion-label>
+                                    <ion-input class="custom mt-2"
+                                        [class.invalid-in]="!addressForm.get('add1')?.valid && addressForm.get('add1')?.touched"
+                                        formControlName="add1" placeholder="Enter Your Address" minLength="2"
+                                        maxLength="128"></ion-input>
+                                </ion-col>
+                                <ion-col size="6">
+                                    <ion-label class="field-label">Address 2 <span class="optional-css">
+                                            (Optional)</span></ion-label>
+                                    <ion-input class="custom mt-2"
+                                        [class.invalid-in]="!addressForm.get('add2')?.valid && addressForm.get('add2')?.touched"
+                                        formControlName="add2" placeholder="Enter Your Address"
+                                        maxLength="128"></ion-input>
+                                </ion-col>
+                                <ion-col size="4">
+                                    <ion-label class="field-label">City<span class="red-color">*</span></ion-label>
+                                    <ion-input class="custom mt-2"
+                                        [class.invalid-in]="!addressForm.get('city')?.valid && addressForm.get('city')?.touched"
+                                        formControlName="city" placeholder="Enter City" maxLength="64"></ion-input>
+                                </ion-col>
+                                <ion-col size="4">
+                                    <ion-label class="field-label">State<span class="red-color">*</span></ion-label>
+                                    <select class="form-select custom-select mt-2" aria-label="Type"
+                                        formControlName="state"
+                                        [class.invalid-in]="!addressForm.get('state')?.valid && addressForm.get('state')?.touched">
+                                        <option selected disabled value="">- Select State -</option>
+                                        <option id="state" *ngFor="let st of stateList" [value]="st?.code">
+                                            {{st?.name}}&nbsp;({{st?.code}})</option>
+                                    </select>
+                                </ion-col>
+                                <ion-col size="4">
+                                    <ion-label class="field-label">Zip Code<span class="red-color">*</span></ion-label>
+                                    <ion-input class="custom mt-2"
+                                        [class.invalid-in]="!addressForm.get('postal')?.valid && addressForm.get('postal')?.touched"
+                                        inputmode="numeric" (keypress)="numericOnly($event)" formControlName="postal"
+                                        placeholder="Enter Zip Code" maxLength="5" oncopy="return false;"
+                                        oncut="return false;" ondrag="return false;" ondrop="return false;"
+                                        (paste)="validateZipCodePaste($event)"></ion-input>
+                                </ion-col>
+
+                            </ion-row>
+                        </ng-container>
+                    </ng-container>
+
+                    <!-- add-new-insurance-start -->
+
+                    <div class="title-overview">
+                        <h4 style="margin-top: 10px;">Insurance Information
+                            <a class="add-address"
+                                (click)="addInsurance()"> <i class="fa fa-plus" aria-hidden="true"></i> Add
+                                Insurance</a>
+                        </h4>
+                    </div>
+
+                    <ng-container formArrayName="insurances">
+                        <ng-container *ngFor="let insuranceForm of insurances?.controls; let i = index">
+                            <div class="row">
+                                <div class="col-md-12" [formGroupName]="i">
+                                    <ion-accordion-group [multiple]="true"
+                                        [value]="['firstAccordion','secondAccordion','thirdAccordion','forthAccordion','fifthAccordion']"
+                                        #accordionGroup>
+                                        <ion-accordion style="user-select: auto;" value="firstAccordion"
+                                            class="profile-details" expanded="true">
+                                            <ion-item slot="header" class="box-sm-head select-head mt0">
+                                                <ul (click)="$event.stopPropagation()">
+                                                    <li>
+                                                        <select class="form-select white-select mt-2" aria-label="Type"
+                                                            formControlName="insuranceType" (change)="onTypeChange(i)">
+                                                            <option *ngFor="let item of insuranceTypeDD" [value]="item">
+                                                                {{ item }}</option>
+                                                        </select>
+                                                    </li>
+                                                    <li>
+                                                        <a class="add-address"
+                                                            (click)="removeInsurance(i)"> <i class="fa fa-minus"
+                                                                aria-hidden="true"></i> Remove Insurance</a>
+                                                    </li>
+                                                </ul>
+
+
+                                                <div (click)="toggleIconColorPast()"
+                                                    [ngClass]="{'expanded': isHoveredPast}">
+                                                    <!-- <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                                        viewBox="0 0 20 20" fill="" class="pos20"
+                                                        [attr.fill]="isHoveredPast ? userService.getBranding('tabColor') : '#CFD1D5'"
+                                                        (mouseenter)="isHoveredPast = true"
+                                                        (mouseleave)="isHoveredPast = false">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                                            d="M10.75 0.75C10.75 0.335786 10.4142 0 10 0C9.58579 0 9.25 0.335786 9.25 0.75V2.75C9.25 3.16421 9.58579 3.5 10 3.5C10.4142 3.5 10.75 3.16421 10.75 2.75V0.75ZM1.53033 3.21967C1.23744 2.92678 0.762563 2.92678 0.46967 3.21967C0.176777 3.51256 0.176777 3.98744 0.46967 4.28033L1.96967 5.78033C2.26256 6.07322 2.73744 6.07322 3.03033 5.78033C3.32322 5.48744 3.32322 5.01256 3.03033 4.71967L1.53033 3.21967ZM19.5303 4.28033C19.8232 3.98744 19.8232 3.51256 19.5303 3.21967C19.2374 2.92678 18.7626 2.92678 18.4697 3.21967L16.9697 4.71967C16.6768 5.01256 16.6768 5.48744 16.9697 5.78033C17.2626 6.07322 17.7374 6.07322 18.0303 5.78033L19.5303 4.28033ZM18.8772 10.3212C20.3743 11.7543 20.3743 14.2459 18.8772 15.679C16.8134 17.6546 13.6042 20.0001 10 20.0001C6.3958 20.0001 3.18661 17.6546 1.12281 15.679C-0.374268 14.2459 -0.374269 11.7543 1.12281 10.3212C3.18661 8.34563 6.3958 6.00012 10 6.00012C13.6042 6.00012 16.8134 8.34563 18.8772 10.3212ZM13 13.0001C13 14.657 11.6568 16.0001 9.99997 16.0001C8.34311 16.0001 6.99997 14.657 6.99997 13.0001C6.99997 11.3433 8.34311 10.0001 9.99997 10.0001C11.6568 10.0001 13 11.3433 13 13.0001Z"
+                                                            fill="" class="icon-eye" />
+                                                    </svg> -->
+                                                </div>
+                                            </ion-item>
+
+                                            <div class="" slot="content">
+                                                <div class="visit-reason">
+
+                                                    <ion-row>
+                                                        <ion-col size="4">
+                                                            <ion-label class="field-label">Relation</ion-label>
+                                                            <select class="form-select custom-select mt-2" aria-label="Type"
+                                                                formControlName="relation" [class.invalid-in]="!insuranceForm.get('relation')?.valid && insuranceForm.get('relation')?.touched">
+                                                                <option disabled value="">Select Relation</option>
+                                                                <option *ngFor="let item of RelationDD" [value]="item">
+                                                                    {{item}}</option>
+                                                            </select>
+
+                                                            
+                                                        </ion-col>
+                                                        <ion-col size="4">
+                                                            <ion-label class="field-label">Insurance Carrier
+                                                                Name</ion-label>
+                                                            <ion-input class="custom"
+                                                                placeholder="Insurance Carrier Name"
+                                                                formControlName="insuranceCarrierName" [class.invalid-in]="!insuranceForm.get('insuranceCarrierName')?.valid && insuranceForm.get('insuranceCarrierName')?.touched"></ion-input>
+                                                        </ion-col>
+                                                        <ion-col size="4">
+                                                            
+                                                            <ion-label class="field-label">Plan
+                                                                Name</ion-label>
+                                                                    <ion-input class="custom" placeholder="Plan Name"
+                                                                formControlName="planName"  (ionInput)="onSearchInput($event,i)"
+                                                                 maxLength="255"></ion-input>
+
+                                                            <div class="search-dropdown-icd"
+                                                                *ngIf=" planNames !== undefined && planNames.length > 0 "
+                                                                [ngClass]="{ open: dropdownStates[i]}">
+                                                                <div class="search-dropdown-icd__dropdown">
+                                                                    <div
+                                                                        class="search-dropdown-icd__dropdown__scroller">
+                                                                        
+                                                                        <div class="search-dropdown-icd__dropdown__item item-row code-pad"
+                                                                            *ngFor="let item of planNames"
+                                                                            (click)="onSelectPlan(item,i)">
+                                                                            <div>
+                                                                                <ion-row
+                                                                                    class="code-content">
+                                                                                    
+                                                                                    <ion-col size="8">
+                                                                                        <p>{{item.plan_name}}
+                                                                                        </p>
+                                                                                    </ion-col>
+                                                                                </ion-row>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </ion-col>
+                                                        
+                                                        <ion-col size="4">
+                                                            <ion-label class="field-label">Group ID </ion-label>
+                                                            <ion-input class="custom" placeholder="Group ID"
+                                                                formControlName="groupId"
+                                                                [class.invalid-in]="!insuranceForm.get('groupId')?.valid && insuranceForm.get('groupId')?.touched" maxLength="255"></ion-input>
+                                                        </ion-col>
+                                                        <ion-col size="4">
+                                                            <ion-label class="field-label">Member ID </ion-label>
+                                                            <ion-input class="custom" placeholder="Member ID"
+                                                                formControlName="memberId"
+                                                                [class.invalid-in]="!insuranceForm.get('memberId')?.valid && insuranceForm.get('memberId')?.touched" maxLength="255"></ion-input>
+                                                        </ion-col>
+                                                        <ion-col size="4">
+                                                            <a class="add-button pos30" 
+                                                                (click)="openEndMenu(i)">
+                                                                <span class="upload-sm-ico"><img
+                                                                        src="../assets/img/upload-sm-ico.svg"> </span>
+                                                                Upload
+                                                                Image</a>
+                                                        </ion-col>
+                                                    </ion-row>
+                                                </div>
+                                            </div>
+                                        </ion-accordion>
+                                    </ion-accordion-group>
+                                </div>
+                            </div>
+
+                            <!-- add-new-insurance-end -->
+                        </ng-container>
+                    </ng-container>
+
+                    <ion-row>
+
+                    </ion-row>
+                </form>
+            </div>
+        </ion-col>
+
+    </ion-row>
+
+    <ion-modal id="example-modal sml-modal" #modal trigger="open-custom-dialog">
+        <ng-template>
+            <div class="wrapper common-pad">
+                <div class="model-content">
+                    <p>Are you sure you want to go back?</p>
+                    <ul>
+                        <li><a class="add-button"
+                                (click)="onclickYes()">Yes</a>
+                        </li>
+                        <li><a class="add-button"
+                                (click)="closeModal()">No</a></li>
+                    </ul>
+                </div>
+            </div>
+        </ng-template>
+    </ion-modal>
+</div>

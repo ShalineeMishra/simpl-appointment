@@ -1,0 +1,250 @@
+$font_clr: var(--font-color);
+$tab_clr: var(--tab-color);
+.site-logo img {
+  padding: 10px 0px 0px 10px;
+  height: 50px;
+  width: auto;
+  top: 10px;
+  cursor: pointer;
+}
+img {
+  width: 100%;
+}
+
+.search {
+  position: relative;
+  width: 100%;
+  padding: 20px;
+  margin-left: -30px;
+}
+
+.search label {
+  position: relative;
+  width: 100%;
+}
+
+.search label input {
+  width: 100%;
+  height: 45px;
+  border-radius: 40px;
+  padding: 5px 20px;
+  padding-left: 35px;
+  outline: none;
+  border: 0;
+  background: #ffffff;
+  box-shadow: 0px 8px 25px #16ca9f1c;
+  font-size: 15px;
+}
+
+.search label img {
+  position: absolute;
+  font-size: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 10px;
+  color: #cdc5c5;
+}
+
+.header-icon-css {
+  padding: 10px;
+  display: inline-block;
+  border-radius: 50px;
+}
+.header-icon-css img {
+  background-color: #f1f2f3;
+  padding: 10px;
+  border-radius: 50px;
+  cursor: pointer;
+}
+.header-provider-name h5 {
+  margin-bottom: 0;
+  margin-top: 0;
+  font-weight: 800 !important;
+}
+.header-provider-name p {
+  margin-bottom: 0;
+  margin-top: 0;
+  font-weight: 700;
+  font-size: 14px;
+  margin-right: 10px;
+}
+
+.custom-dropdown-option {
+  font-feature-settings: "ss06" on;
+  font-family: Manrope;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.custom-dropdown-option:hover {
+  font-feature-settings: "ss06" on;
+  font-family: Manrope;
+  cursor: pointer;
+  font-weight: 200;
+}
+option:hover {
+  background-color: #df1f1f; /* Background color */
+}
+
+.location-bx span img {
+  width: 22px;
+}
+.location-bx span {
+  margin-bottom: 5px;
+}
+.location-bx {
+  display: flex;
+  align-items: center;
+}
+
+.location-bx select {
+  border: 0px;
+}
+
+.location-bx .form-select {
+  display: block;
+  width: 100%;
+  padding: 0 0 0 -50px;
+  -moz-padding-start: calc(0.75rem - 3px);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: #212529;
+}
+
+.location-bx .form-select:focus {
+  border-color: #86b7fe;
+  outline: 0;
+  box-shadow: none;
+}
+
+/** side menu scss*/
+.menu-main-title {
+    color: #6C717B;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  
+  div#main-content {
+    padding-right: 0;
+    width: 250px;
+  }
+  
+  .footer-md {
+    box-shadow: none;
+  }
+  
+  .menu-item {
+    font-size: 16px;
+    font-weight: 700;
+    // margin: 0 0 10px 0px;
+    margin-bottom: 10px;
+    border-radius: 14px;
+    transition: all 0.5s ease;
+    --background: var(--tab-color);
+    color: #ffffff;
+  }
+
+  .menu-item img {
+    filter: brightness(0) invert(1);
+  }
+  
+  .menu-item.active {
+    --background: var(--tab-color);
+    border-radius: 14px;
+    color: #ffffff;
+    font-weight: 700;
+    width: 100%;
+    transition: all 0.5s ease;
+  }
+  
+  .menu-item:hover img {
+    filter: brightness(0) invert(1);
+  }
+  
+  .menu-item:hover {
+    --background: var(--tab-color);
+    border-radius: 14px;
+    --color: #ffffff !important;
+    font-weight: 700;
+    transition: all 0.5s ease;
+  }
+  
+  // Scrollbar css
+  ion-content {
+    --offset-bottom: auto !important;
+    --overflow: auto;
+    background: transparent !important;
+    overflow: auto;
+  
+    &::-webkit-scrollbar {
+      width: 0px;
+      height: 0px;
+      border-radius: 5px;
+    }
+  
+    &::-webkit-scrollbar-track {
+      background: rgb(179, 179, 179);
+    }
+  
+    &::-webkit-scrollbar-track:hover {
+      background: rgb(75, 75, 75);
+    }
+  
+    &::-webkit-scrollbar-thumb {
+      background: #cfcece;
+    }
+  
+    &::-webkit-scrollbar-thumb:hover {
+      background: rgb(75, 75, 75);
+    }
+  
+    .inner-scroll {
+      scrollbar-width: thin;
+    }
+  }
+  
+  .menu-item.active img {
+    filter: brightness(0) invert(1);
+  }
+  
+  .hidden {
+    visibility: hidden;
+  }
+
+  /** container item*/
+  .top {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 70px;
+  }
+  
+  .left {
+    position: absolute;
+    left: 0;
+    top: 70px;
+    bottom: 0;
+    width: 250px;
+  }
+  
+  .main {
+    border-radius: 20px;
+    position: absolute;
+    left: 250px;
+    top: 70px;
+    right: 0;
+    bottom: 0;
+  }
+  
+  .mainp {
+    position: absolute;
+    left: 0px;
+    top: 60px;
+    right: 0;
+    bottom: 0;
+  }
+  .site-logo img {
+    height: 50px;
+  }
+  
