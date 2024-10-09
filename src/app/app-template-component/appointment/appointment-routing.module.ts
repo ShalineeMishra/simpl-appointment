@@ -19,6 +19,12 @@ const routes: Routes = [
       import('../add-new-patient/add-new-patient.module').then((m) => m.AddNewPatientModule),
     data: { title: 'Select-Patient' },
   },
+  {
+    path: 'appointmentsList',
+    loadChildren: () =>
+      import('../appointments-list/appointments-list.module').then((m) => m.AppointmentsListModule),
+    data: { title: 'Appointments List' },
+  },
 ];
 
 @NgModule({

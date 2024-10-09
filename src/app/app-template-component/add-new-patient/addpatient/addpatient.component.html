@@ -213,7 +213,6 @@
             <ion-col size="6">
                 <div class="title-overview">
                     <div style="cursor: pointer;" *ngIf="type !== 'appointment'" (click)="openModal()">
-                        <!-- <div style="cursor: pointer;" [routerLink]="['/patient']"> -->
                         <i *ngIf="type !== 'appointment'" name="close" class="fa fa-close" aria-hidden="true"></i><span>
                             Cancel</span>
                     </div>
@@ -268,12 +267,9 @@
                         </ion-col>
                         <ion-col size="4">
                             <ion-label class="field-label">Phone Number <span class="optional-css">
-                                    (Optional)</span></ion-label>
-                            <!-- <ion-input
-                                [class.invalid-in]="!regForm1.get('phone')?.valid && regForm1.get('phone')?.touched"
-                                inputmode="numeric" (keypress)="numericOnly($event)" class="custom mt-2"
-                                formControlName="phone" id="phoneInput" placeholder="(XXX) XXX-XXXX"
-                                [maskito]="phoneMask" [maskitoElement]="maskPredicate"></ion-input> -->
+                                    (Optional)</span></ion-label>                    
+                                <ion-input inputmode="numeric" class="custom mt-2" formControlName="phone" id="phoneInput"
+                                    placeholder="(XXX) XXX-XXXX" [maskito]="phoneMask" [maskitoElement]="maskPredicate"></ion-input>
                         </ion-col>
                         <ion-col size="4">
                             <ion-label class="field-label">Date of Birth<span class="red-color">*</span></ion-label>
@@ -298,13 +294,13 @@
                         </ion-col>
 
 
-                        <ion-col size="5">
+                        <ion-col size="6">
                             <ion-row>
                                 <ion-label class="field-label">Social Security Number<span class="optional-css">
                                         (Optional)</span></ion-label>
                             </ion-row>
                             <ion-row>
-                                <ion-col size="3.5">
+                                <ion-col size="3">
                                     <ion-input
                                         [class.invalid-in]="regForm1.get('ssn1')?.invalid && regForm1.get('ssn1')?.touched"
                                         (input)="onInput(input1, input2)" formControlName="ssn1"
@@ -312,7 +308,7 @@
                                         (keypress)="numericOnly($event)" placeholder="###" class="custom so-sec"
                                         maxlength="3"></ion-input>
                                 </ion-col>
-                                <ion-col size="3.5">
+                                <ion-col size="3">
                                     <ion-input
                                         [class.invalid-in]="regForm1.get('ssn2')?.invalid && regForm1.get('ssn2')?.touched"
                                         #input2 (input)="onInput(input2, input3)" formControlName="ssn2"
@@ -320,7 +316,7 @@
                                         (keypress)="numericOnly($event)" placeholder="##" class="custom so-sec"
                                         maxlength="2"></ion-input>
                                 </ion-col>
-                                <ion-col size="3.5">
+                                <ion-col size="4">
                                     <ion-input
                                         [class.invalid-in]="regForm1.get('ssn3')?.invalid && regForm1.get('ssn3')?.touched"
                                         #input3 (input)="onInput(input3, input4)" formControlName="ssn3"
@@ -328,13 +324,11 @@
                                         (keypress)="numericOnly($event)" placeholder="####" class="custom so-sec"
                                         maxlength="4"></ion-input>
                                 </ion-col>
-                                <ion-col size="1.5">
-                                    <button (click)="togglePasswordVisibility()" type="button" class="show-eye"
-                                        ion-button clear small item-end icon-only><img
-                                            [name]="showPassword ? 'eye-off' : 'eye'"
-                                            src="/assets/img/eye.svg" /></button>
-                                    <!-- <ion-icon name="eye" (click)="togglePasswordVisibility()"></ion-icon> -->
-                                </ion-col>
+                                <ion-col size="2">                                  
+                                    <button (click)="togglePasswordVisibility()" type="button" class="show-eye ion-button clear small item-end icon-only">
+                                        <img [src]="showPassword ? '/assets/img/eye.svg' : '/assets/img/eye-off.svg'" />
+                                    </button>
+                                </ion-col>                                
 
                             </ion-row>
                         </ion-col>

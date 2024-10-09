@@ -202,7 +202,7 @@ export class SelectPatientComponent implements OnInit {
   }
 
   goBackToAppointmentList() {
-    this.router.navigate(['/appointments']);
+    this.router.navigate(['/appointment/appointmentsList']);
   }
 
   goBackToProviderList() {
@@ -417,7 +417,7 @@ export class SelectPatientComponent implements OnInit {
       next: (res: any) => {
         this.httpProvider.logText("Get available staff of resource", res);
         this.toastMessageService.presentSuccessMessage("Appointment has been successfully booked!!");
-        this.router.navigate(['/appointments']);
+        this.goBackToAppointmentList();
       },
       error: (error) => {
         this.toastMessageService.presentErrorMessage("Error while creating appointment : " + error.error.message);

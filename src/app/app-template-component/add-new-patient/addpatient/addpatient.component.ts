@@ -851,10 +851,10 @@ export class AddpatientComponent implements OnInit, OnDestroy {
       // Inspect FormData contents
 
       let token = localStorage?.getItem('id_token');
-      const simpl_id = localStorage?.getItem('locationId');
+      const locationId = localStorage?.getItem('locationId');
       const headers = new HttpHeaders({
         Authorization: `Bearer ${token}`,
-        'x-simpl-locationid': `${simpl_id}`,
+        'x-simpl-locationid': `${locationId}`,
       });
       let url = this.httpProvider.createInsuranceURL()
       this.http
@@ -878,10 +878,8 @@ export class AddpatientComponent implements OnInit, OnDestroy {
                 while (this.insurances.length) {
                   this.insurances.removeAt(0);
                 }
-
                 // Add a single insurance entry
                 this.insurances.push(this.createInsurance('Primary Insurance'));
-                this.router.navigate(['/patient']);
               }
 
             }
@@ -998,7 +996,6 @@ export class AddpatientComponent implements OnInit, OnDestroy {
               this.disableButton = true;
               this.communicationService.sendMessage("added");
               this.regForm1.reset();
-              this.router.navigate(['/patient']);
             }
           }
         },
@@ -1058,6 +1055,7 @@ export class AddpatientComponent implements OnInit, OnDestroy {
 
 
   passPatientDataToappointment(data: any) {
+    localStorage.setItem('simplId', data?.simpl_id);
     const dataToSend = { PatientData: data };
     this.requestBodyForAddPatient.emit(dataToSend);
   }
@@ -1120,6 +1118,7 @@ export class AddpatientComponent implements OnInit, OnDestroy {
     this.modal.dismiss();
     this.close();
   }
+
   openModal() {
     this.modal.present();
   }

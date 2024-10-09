@@ -14,7 +14,8 @@ const routes: Routes = [
       import('./app-template-component/app-template-component.module')
       .then((m) => m.AppTemplateComponentModule),
     data: { title: 'Appointment' },
-  }
+  },
+  // { path: '**', redirectTo: 'appointment' }
 ];
 
 @NgModule({

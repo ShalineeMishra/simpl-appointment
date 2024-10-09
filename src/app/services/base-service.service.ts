@@ -13,7 +13,7 @@ export class BaseService {
     return new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${localStorage.getItem('id_token')}`,
-      'x-simpl-locationid': `${localStorage.getItem('location_id')}`,
+      'x-simpl-locationid': `${localStorage.getItem('locationId')}`,
     });
   }
 

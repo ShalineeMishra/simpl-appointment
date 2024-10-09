@@ -68,7 +68,7 @@ export class HttpRestApiService {
 
   getHttpHeaders(): HttpHeaders {
     let token =  localStorage?.getItem('id_token');
-    let locationId =  localStorage?.getItem('location_id') || 0;
+    let locationId =  localStorage?.getItem('locationId') || 0;
     return new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': 'Bearer '+token,
@@ -78,7 +78,7 @@ export class HttpRestApiService {
 
   getHttpHeadersForFormData(): HttpHeaders {
     let token =  localStorage?.getItem('id_token');
-    let locationId =  localStorage?.getItem('location_id') || 0;
+    let locationId =  localStorage?.getItem('locationId') || 0;
     return new HttpHeaders({
       'Authorization': 'Bearer '+token,
       'x-simpl-locationid': locationId,

@@ -95,17 +95,6 @@ ion-input {
     height:100%;
     overflow-y: scroll;
 }
-.custom-select {
-    background-color: #fff;
-    border: none;
-    height: 45px;
-    border-radius: 10px;
-}
-.custom-selectt {
-    background-color: #fff;
-    height: 45px;
-    border-radius: 10px;
-  }
 .custom-select:focus {
     box-shadow: none;
 }
@@ -362,7 +351,6 @@ a.add-button.disabled {
     line-height: 1.5;
     color: #212529;
     background-color: #fff;
-    background-image: url("/assets/img/direction-down.svg") !important;
     background-repeat: no-repeat !important;
     background-position: right .75rem center !important;
     background-size: 16px 12px;
@@ -700,11 +688,7 @@ ion-menu.CustomMenu{
 .searchpat a:hover{
   cursor: pointer;
 }
-.form-select:focus {
-  border-color: #86b7fe;
-  outline: 0;
-  box-shadow: none;
-}
+
 .search-dropdown-icd {
   position: relative;
   user-select: none;

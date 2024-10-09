@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MenuController, Platform } from '@ionic/angular';
@@ -11,10 +11,11 @@ import { environment } from '../environments/environment';
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   logoUrl!: string;
   loginLogoUrl!: string;
   poweredByLogo!: string;
+  urlParams: any;
 
   constructor(
     private titleSerice: TitleService,
@@ -29,20 +30,34 @@ export class AppComponent {
     ) {
 
       this.activatedRoute.queryParams?.subscribe((params: any) => {
+        this.urlParams = params;
         this.handleGetBrandingByPartnerNumber(params?.partner_number);
       });      
     }
 
   ngOnInit(): void {    
-    // Programmatically navigate to appointment route with query params
-    let paramData ={
+  // Programmatically navigate to appointment route with query params
+    const currentUrl = window.location.href; // Get the current URL
+    const url = new URL(currentUrl); // Create a URL object
+    const params = url.searchParams; // Get the search parameters
+
+    // Convert the search parameters to an object
+    this.urlParams = {};
+    params.forEach((value: any, key: any) => {
+      this.urlParams[key] = value; // Set each parameter in the object
+    });
+
+
+   //for local run
+    this.urlParams ={
       partner_number:'00000000',
       providerId :1,//instead of this we can ask provider mail id
       locationId : 2,
       mailId:'simpladmin123@yopmail.com',
-      token:'eyJraWQiOiJBRFJ6cHlxR1JHbHAzM1p0cmZuVFNvbzExaGMrT1JzT0F2Nm43bjUxaFdRPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiI1YmU1MzNmMS1iMzIwLTQ0OWUtYWYwMi00ODQxZjRiZTkyNWMiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiaXNzIjoiaHR0cHM6XC9cL2NvZ25pdG8taWRwLnVzLWVhc3QtMS5hbWF6b25hd3MuY29tXC91cy1lYXN0LTFfU1JSaTVSSk9vIiwiY29nbml0bzp1c2VybmFtZSI6IjViZTUzM2YxLWIzMjAtNDQ5ZS1hZjAyLTQ4NDFmNGJlOTI1YyIsIm9yaWdpbl9qdGkiOiJjMTVmMjZiZC02ZTgwLTRlNDItYjFiNC03MThlMzUyYjFkN2IiLCJhdWQiOiJzbHVscHZmdHJkbWUxdWNicHQ5YWFodXNiIiwiZXZlbnRfaWQiOiJmMzQ3NGY4MS04YjQzLTRmZDUtYjFhYy04N2EyOTUyZjM3MjUiLCJ0b2tlbl91c2UiOiJpZCIsImF1dGhfdGltZSI6MTcyODM5MDgzOSwiZXhwIjoxNzI4Mzk0NDM5LCJpYXQiOjE3MjgzOTA4MzksImp0aSI6ImJkZWQxMTU3LTc2MTMtNGIxMi1iODk0LWVlMzk3MmZhMjViZCIsImVtYWlsIjoic2ltcGxhZG1pbjEyM0B5b3BtYWlsLmNvbSJ9.MldGDdzAaop0l0LKw0kEN4iazQpYhjYzxYs6fE8lCqVo-q34PN1ptiHV2hoTsuD_ck73s7e5JRw_wHBJTn99HuUKsNKUpD4xWt1YPTtArQCDF8ynX4yW6v6wmas_oJKBq4hW-Ri4R0RCaP0nxRRizJekG6UEWjLAmF0hy_m7tt0gTLziJNVUyBNxXxR0Gz_AYYCJg_ctT474542Zfqapux5rdDet2ErMl0gUj91lNtqmjTfs6lKocoQuHJJfC7V8J6doPbCh4g4IkSB9dfs5HAuBpSViV7KnFld4qCsAwb1uU4-7xZUhkHUC1dgD8hjbCZ9oETFNMAD_SKtwGGmS6g'
+      token:'eyJraWQiOiJBRFJ6cHlxR1JHbHAzM1p0cmZuVFNvbzExaGMrT1JzT0F2Nm43bjUxaFdRPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiI1YmU1MzNmMS1iMzIwLTQ0OWUtYWYwMi00ODQxZjRiZTkyNWMiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiaXNzIjoiaHR0cHM6XC9cL2NvZ25pdG8taWRwLnVzLWVhc3QtMS5hbWF6b25hd3MuY29tXC91cy1lYXN0LTFfU1JSaTVSSk9vIiwiY29nbml0bzp1c2VybmFtZSI6IjViZTUzM2YxLWIzMjAtNDQ5ZS1hZjAyLTQ4NDFmNGJlOTI1YyIsIm9yaWdpbl9qdGkiOiI0NTIwZjRlOC1iODE2LTQ5OGUtODU4ZC1mZjFhZmY5ZWJjMGMiLCJhdWQiOiJzbHVscHZmdHJkbWUxdWNicHQ5YWFodXNiIiwiZXZlbnRfaWQiOiI5NWRkZDY1NS1iNmViLTQyMDQtYWZiYS00YzJkZjJlYjEwZDQiLCJ0b2tlbl91c2UiOiJpZCIsImF1dGhfdGltZSI6MTcyODQ2ODI3NywiZXhwIjoxNzI4NDcxODc3LCJpYXQiOjE3Mjg0NjgyNzcsImp0aSI6IjNhNWM4YzU4LTdhMjktNDQzMy1hZDc3LTgxZjkxNmExMTZhYiIsImVtYWlsIjoic2ltcGxhZG1pbjEyM0B5b3BtYWlsLmNvbSJ9.QUyCEBs-Pmrlu8mTv5Vy3a_RuxddtnvDfH0bbDgQBhqwA3qfgTPl7ugXnTjdcW64yRpSmFHFDa15AKNuh8w0sJrubzfTPWfgOhysar-YGSiVofocVgh7pwFLZFRO16ES0OhKzLsG3PUcZIeHcGxF0eotgj5e84LV2bmYS0NySyT-SFZpa045BeQPTapJ6wlLZMIbljCenWPjaacSA59wF4_vT8mfghAP9af0FluY2MR_qjN8SZ-gjBrFFI0KmMdv7CPnaYgPtBTolK3S7pErPZfXd-szw-D9FBYB9VbSqH-TIHrUjHvqWCKvrO3pF8atcISYL4-WCXAooYBgjGF3Og',
+      test :'fromweb'
     }
-    this.router.navigate(['/appointment'], { queryParams:  paramData});//{ partnerNumber: '00000000' }
+    this.router.navigate(['/appointment'], { queryParams:  this.urlParams});//{ partnerNumber: '00000000' }
   }
 
   handleGetBrandingByPartnerNumber(partnerNumber: any) {

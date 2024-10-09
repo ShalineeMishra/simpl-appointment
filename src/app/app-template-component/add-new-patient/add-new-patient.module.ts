@@ -9,7 +9,7 @@ import { IonicModule } from '@ionic/angular';
 import { AddpatientComponent } from './addpatient/addpatient.component';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { MaskitoDirective } from '@maskito/angular';
 
 @NgModule({
   declarations: [AddNewPatientComponent,AddpatientComponent],
@@ -20,6 +20,7 @@ import { BrowserModule } from '@angular/platform-browser';
     IonicModule,
     RouterModule,
     CommonModule,
+    MaskitoDirective
   ],
   schemas:[NO_ERRORS_SCHEMA]
 })

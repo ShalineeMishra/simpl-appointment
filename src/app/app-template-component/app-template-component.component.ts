@@ -164,10 +164,7 @@ export class AppTemplateComponent implements OnInit {
     },
   ];
   constructor(public themeService: ThemeService,
-    private authService: AuthService,
     private titleService: TitleService,
-    private hostService: HostService,
-    private http: HttpClient,
     public httpProvider: HTTPProviderService,
     private router: Router,
     private route: ActivatedRoute,
@@ -182,7 +179,7 @@ export class AppTemplateComponent implements OnInit {
           localStorage.setItem('mailId',params?.mailId);  
           localStorage.setItem('id_token',params?.token);  
 
-          // Clear query parameters after saving them to local storage
+          //Clear query parameters after saving them to local storage
           this.router.navigate([], {
             relativeTo: this.activatedRoute,
             queryParams: {},  // Clear the query params
