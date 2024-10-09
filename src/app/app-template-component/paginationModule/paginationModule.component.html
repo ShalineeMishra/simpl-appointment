@@ -1,0 +1,10 @@
+<ion-row *ngIf="listSize !== 0">
+    <div class="pagination-css">
+        <p>Results</p>
+        <select (change)="onChangePage($event)" [(ngModel)]="currentPage">
+            <option *ngFor="let page of totalPages; let myIndex = index" value="{{myIndex}}">{{myIndex+1}}
+            </option>
+        </select>
+        <p class="p-margin-left">of &nbsp; {{totalPages.length}}</p>
+    </div>
+</ion-row>

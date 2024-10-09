@@ -8,6 +8,12 @@ const routes: Routes = [
     path: '',
     component: SelectPatientComponent,
   },
+  {
+    path: 'appointmentsList',
+    loadChildren: () =>
+      import('../appointments-list/appointments-list.module').then((m) => m.AppointmentsListModule),
+    data: { title: 'Appointments List' },
+  },
   // {
   //   path: 'login',
   //   loadChildren: () =>

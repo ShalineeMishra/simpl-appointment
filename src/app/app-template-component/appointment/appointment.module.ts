@@ -12,12 +12,7 @@ import { SearchDropdown } from '../search-dropdown/search-dropdown';
 import { AvailTimeResourceComponent } from '../avail-time-resource/avail-time-resource.component';
 import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
-// import { AvailTimeResourceComponent } from '../avail-time-resource/avail-time-resource.component';
-
-
-//import { AvailTimeResourceComponent } from '../avail-time-resource/avail-time-resource.component';
-// import { SearchDropdown } from '../search-dropdown/search-dropdown';
-// import { LocationSearchDropdown } from '../location-search-dropdown/location-search-dropdown';
+import { SharedModule } from '../../services/shared.module';
 
 
 @NgModule({
@@ -31,8 +26,8 @@ import { RouterModule } from '@angular/router';
     FormsModule,
     ReactiveFormsModule,
     IonicModule,
-    RouterModule
-    //SharedModule
+    RouterModule,
+    SharedModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

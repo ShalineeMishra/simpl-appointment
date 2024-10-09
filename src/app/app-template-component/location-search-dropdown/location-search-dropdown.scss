@@ -10,9 +10,7 @@ $offset: 1px;
     height: 38px - $offset;
     line-height: 38px - $offset;
     padding: 0px 20px;
-    //border: 1px solid #ccc;
     cursor: pointer;
-    //border-radius: 10px;
     &:before {
       content: "";
       position: absolute;
@@ -146,8 +144,6 @@ $offset: 1px;
   }
   &.small {
     #{$self}__btn {
-      //height: 32px - $offset;
-      //line-height: 32px - $offset;
       height: 40px;
       line-height: 32px;
       min-width: 200px;

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { AppointmentsListRoutingModule } from './appointments-list-routing.module';
@@ -6,6 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
 import { AppointmentsListComponent } from './appointments-list.component';
+import { SharedModule } from '../../services/shared.module';
 
 
 @NgModule({
@@ -16,7 +17,9 @@ import { AppointmentsListComponent } from './appointments-list.component';
     FormsModule,
     ReactiveFormsModule,
     IonicModule,
-    RouterModule
-  ]
+    RouterModule,
+    SharedModule
+  ],
+  schemas:[CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppointmentsListModule { }
